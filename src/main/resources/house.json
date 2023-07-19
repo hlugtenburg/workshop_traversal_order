@@ -1,0 +1,49 @@
+{
+  "direction": "E",
+  "length": 5,
+  "visible": false,
+  "adjacentLine": [
+    {
+      "direction": "N",
+      "length": 10,
+      "visible": true,
+      "adjacentLine": [
+        {
+          "direction": "E",
+          "length": 20,
+          "visible": true,
+          "adjacentLine": [
+            {
+              "direction": "S",
+              "length": 10,
+              "visible": true,
+              "adjacentLine": [
+                {
+                  "direction": "W",
+                  "length": 20,
+                  "visible": true,
+                  "adjacentLine": [
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "direction": "NE",
+          "length": 10,
+          "visible": true,
+          "adjacentLine": [
+            {
+              "direction": "SE",
+              "length": 10,
+              "visible": true,
+              "adjacentLine": [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

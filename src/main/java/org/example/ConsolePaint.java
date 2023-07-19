@@ -1,8 +1,10 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class ConsolePaint {
 
-    char[][] coordinateSystem;
+    public char[][] coordinateSystem;
 
     public ConsolePaint(int width, int height, Line v) {
         coordinateSystem = new char[width][height];
@@ -17,7 +19,6 @@ public class ConsolePaint {
     public void draw() {
         for (int i = 0; i < coordinateSystem.length + 2; i++) {
             System.out.print('.');
-
         }
         System.out.println();
         for (int y = coordinateSystem[0].length - 1; y >= 0; y--) {
@@ -35,4 +36,7 @@ public class ConsolePaint {
         System.out.println();
     }
 
+    public boolean equals(char[][] other) {
+        return Arrays.deepEquals(coordinateSystem, other);
+    }
 }

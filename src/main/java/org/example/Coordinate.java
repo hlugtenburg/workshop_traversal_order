@@ -8,4 +8,8 @@ public class Coordinate {
         this.x = x;
         this.y = y;
     }
+
+    public Coordinate add(Coordinate c) {
+        return new Coordinate(x + c.x, y + c.y);
+    }
 }
