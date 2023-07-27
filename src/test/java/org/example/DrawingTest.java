@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -86,17 +87,27 @@ public class DrawingTest {
     @Test
     void exercise() throws IOException {
         // Hint, the lines that aren't added to a parent, need to be buffered
-        TreeMap<Integer, Line> orphanedLines = new TreeMap<>();
+        TreeMap<Integer, LineParentPair> orphanedLines = new TreeMap<>();
 
         Line result = null;
         while (true) {
             var lineParentPair = getNextElement();
             if (lineParentPair == null) {
                 // Set result to the root Line
+                result = orphanedLines.get(1).line;
                 break;
             }
             System.out.println(lineParentPair);
-            // Build the tree in the right order here....
+
+            var idToRemove = new HashSet<Integer>();
+            for (var pairs: orphanedLines.values()) {
+                if (pairs.parent == lineParentPair.id) {
+                    lineParentPair.line.addLine(pairs.line);
+                    idToRemove.add(pairs.id);
+                }
+            }
+            idToRemove.forEach(orphanedLines::remove);
+            orphanedLines.put(lineParentPair.id, lineParentPair);
         }
 
         if (false) {
